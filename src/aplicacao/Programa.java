@@ -92,13 +92,37 @@ public class Programa {
 		}
 		
 		System.out.println();
-		System.out.println ("DEDUÇÕES: ");
+		System.out.println ("DEDUÇOES: ");
 		System.out.printf("Máximo dedutível: R$ %.2f%n", maximoDedutivel);
-		System.out.printf("Gastos dedutíveis: R$ %.2f%n", gastosDedutivel);		
+		System.out.printf("Gastos dedutíveis: R$ %.2f%n", gastosDedutivel);	
+		
+		
+		//resumo
+	
+		
+		double impostoBruto = impostoSobreSalario + impostoSobrePrestaoServico + impostoCapital;
+		double abatimento;
+		
+		if(gastosDedutivel < maximoDedutivel) {
+			
+			abatimento = gastosDedutivel;
+			
+		} else {
+			
+			abatimento = maximoDedutivel;
+			
+		}
+		
+		System.out.println();
+		System.out.println("RESUMO: ");
+		System.out.printf("Imposto bruto total: R$ %.2f%n", impostoBruto);
+		System.out.printf("Abatimento: R$ %.2f%n", abatimento);
+		System.out.printf("Imposto devido: R$ %.2f%n", impostoBruto - abatimento);
 
 	}
 
 }
+
 
 
 
