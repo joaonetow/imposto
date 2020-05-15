@@ -11,8 +11,7 @@ public class Programa {
 		Scanner sc = new Scanner(System .in);		
 		
 		double rendaAnualComSalario, rendaAnualComPrestacaoServico, rendaAnualComGanhoDeCapital, gastosMedicos, gastosEducacionais;
-		double impostoSobreSalario, impostoSobrePrestaoServico, impostoCapital;
-		
+			
 		//Leitura dos dados
 		
 		System.out.print("Renda anual com salario: ");		
@@ -30,7 +29,9 @@ public class Programa {
 		System.out.print("Gastos educacionais: ");		
 		gastosEducacionais = sc.nextDouble();
 		
-		//Consolidado de renda
+		//consolidado de renda
+		
+		double impostoSobreSalario, impostoSobrePrestaoServico, impostoCapital;
 		
 		if(rendaAnualComSalario / 12 < 3000) {
 			
@@ -67,7 +68,6 @@ public class Programa {
 			
 		}
 		
-		
 		System.out.println();
 		System.out.println("RELATÓRIO DE IMPOSTO DE RENDA");
 		System.out.println();
@@ -75,9 +75,30 @@ public class Programa {
 		System.out.printf("Imposto sobre salário: R$ %.2f%n", impostoSobreSalario);
 		System.out.printf("Imposto sobre serviços: R$ %.2f%n", impostoSobrePrestaoServico);
 		System.out.printf("Imposto sobre ganho de capital: R$ %.2f%n", impostoCapital);
+		
+		//deducoes
+		
+		double maximoDedutivel, gastosDedutivel;		
+		
+		gastosDedutivel = gastosEducacionais + gastosMedicos;
+		
+		if(gastosDedutivel > 0.0) {
+			
+			maximoDedutivel = (impostoSobreSalario + impostoSobrePrestaoServico + impostoCapital) * 0.3;
+			
+		} else {
+			
+			maximoDedutivel = 0.0;
+		}
+		
+		System.out.println();
+		System.out.println ("DEDUÇÕES: ");
+		System.out.printf("Máximo dedutível: R$ %.2f%n", maximoDedutivel);
+		System.out.printf("Gastos dedutíveis: R$ %.2f%n", gastosDedutivel);		
 
 	}
 
 }
+
 
 
